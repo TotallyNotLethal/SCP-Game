@@ -1,3 +1,6 @@
+# Update
+Note: SCP-0096 is currently undergoing a rework due to some bugs. We're working to enhance the gameplay experience and will update once the rework is complete.
+
 # SCP-Game
 # About
 SCP-Game is a Unity-based project inspired by the SCP Foundation universe. It's a game where players can interact as both humans and various SCP entities, experiencing the mysterious and often dangerous world of SCPs.
@@ -15,3 +18,5 @@ Contributions are welcome! Please read our contributing guidelines for instructi
 
 License
 This project is licensed under ITS FUCKING NOT - see the LICENSE.md file for details.
+
+
