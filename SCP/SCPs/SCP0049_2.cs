@@ -23,14 +23,14 @@ public class SCP049_2 : MonoBehaviour
     {
         if (isFollowingSCP0049)
         {
-            FollowSCP049();
+            FollowSCP0049();
         }
 
         PatrolArea();
         AttackTargets();
     }
 
-    private void FollowSCP049()
+    private void FollowSCP0049()
     {
         if (Vector3.Distance(transform.position, SCP0049Transform.position) > followDistance)
         {
