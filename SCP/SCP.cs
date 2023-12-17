@@ -204,5 +204,6 @@ public enum SCPClass
     Euclid,    // SCPs that require more resources to contain completely or reliably
     Keter,     // SCPs that are exceedingly difficult to contain consistently or reliably
     Thaumiel,  // SCPs that are used to contain or counteract the effects of other SCPs
-    Apollyon   // SCPs that cannot be contained or pose an existential threat to humanity or reality
+    Apollyon,  // SCPs that cannot be contained or pose an existential threat to humanity or reality
+    Archon     //SCPs that could theoretically be contained but are best left uncontained for some reason
 }
