@@ -13,82 +13,64 @@ public class GameEnvironment
     public bool IsRaining { get; private set; }
     public float Humidity { get; private set; }
 
-    // Additional properties for detailed environmental simulation
     public float NoiseLevel { get; private set; }
     public Vector3 WindDirection { get; private set; }
 
-    // Environmental change rates (can be adjusted to control the speed of change)
     private const float TemperatureChangeRate = 0.1f;
     private const float RadiationChangeRate = 0.05f;
     private const float AirQualityChangeRate = 0.1f;
 
-    // Constructor
     public GameEnvironment()
     {
-        // Initialize with default values
-        Temperature = 20f; // Room temperature in Celsius
+        Temperature = 20f;
         CurrentWeather = WeatherType.Clear;
         RadiationLevel = 0f;
         CurrentTimeOfDay = TimeOfDay.Day;
-        AirQuality = 1f; // Scale from 0 (worst) to 1 (best)
+        AirQuality = 1f;
         IsIndoors = false;
-        WindSpeed = 5f; // Default wind speed
+        WindSpeed = 5f;
         IsRaining = false;
-        Humidity = 50f; // Default humidity percentage
+        Humidity = 50f;
         NoiseLevel = 0f;
         WindDirection = Vector3.forward;
     }
 
-    // Update the environment (e.g., called every frame or on a time interval)
     public void UpdateEnvironment(float deltaTime)
     {
-        // Implement logic to update environmental factors
-        // This can be based on a game timer, player actions, random events, etc.
         SimulateDayNightCycle(deltaTime);
         SimulateWeatherChanges(deltaTime);
 
-        // Example: Dynamically adjust temperature based on time of day and weather
         AdjustTemperature(deltaTime);
         AdjustRadiationLevels(deltaTime);
         AdjustAirQuality(deltaTime);
-
-        // Additional environmental simulation logic...
     }
 
     private void SimulateDayNightCycle(float deltaTime)
     {
-        // Logic for changing the time of day
-        // Example: Advance time of day based on deltaTime and switch between dawn, day, dusk, night
     }
 
     private void SimulateWeatherChanges(float deltaTime)
     {
-        // Logic for changing weather conditions
-        // Example: Randomly change weather conditions over time
     }
 
     private void AdjustTemperature(float deltaTime)
     {
-        // Example logic to increase/decrease temperature
         Temperature += CurrentWeather == WeatherType.Sunny ? TemperatureChangeRate * deltaTime : -TemperatureChangeRate * deltaTime;
-        Temperature = Mathf.Clamp(Temperature, -10f, 40f); // Example temperature bounds
+        Temperature = Mathf.Clamp(Temperature, -10f, 40f);
     }
 
     private void AdjustRadiationLevels(float deltaTime)
     {
-        // Example logic to adjust radiation levels
         RadiationLevel += RadiationChangeRate * deltaTime;
-        RadiationLevel = Mathf.Clamp(RadiationLevel, 0f, 10f); // Example radiation level bounds
+        RadiationLevel = Mathf.Clamp(RadiationLevel, 0f, 10f);
     }
 
     private void AdjustAirQuality(float deltaTime)
     {
-        // Example logic to improve/worsen air quality
         AirQuality += AirQualityChangeRate * deltaTime;
-        AirQuality = Mathf.Clamp(AirQuality, 0f, 1f); // Air quality bounds
+        AirQuality = Mathf.Clamp(AirQuality, 0f, 1f);
     }
 
-    // Methods to set or modify environmental factors
     public void SetTemperature(float newTemperature) { /* ... */ }
     public void SetWeather(WeatherType weather) { /* ... */ }
     public void SetRadiationLevel(float newRadiationLevel) { /* ... */ }
@@ -99,10 +81,6 @@ public class GameEnvironment
     public void SetRain(bool isRaining) { /* ... */ }
     public void SetHumidity(float humidity) { /* ... */ }
 
-    // Additional methods for specific environmental interactions
-    // ...
-
-    // Enums for weather and time of day
     public enum WeatherType
     {
         Clear,
