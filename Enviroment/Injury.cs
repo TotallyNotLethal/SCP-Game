@@ -4,67 +4,112 @@ using UnityEngine;
 public class Injury
 {
     public InjuryType Type { get; private set; }
-    public float Severity { get; private set; } // A value between 0 and 1, where 1 is the most severe.
+    public float Severity { get; private set; }
     public bool IsTreated { get; private set; }
-    public float TimeSinceInjury { get; private set; } // Time in seconds since the injury occurred.
+    public float TimeSinceInjury { get; private set; }
 
-    // Constructor
     public Injury(InjuryType type, float severity)
     {
         Type = type;
-        Severity = Mathf.Clamp01(severity); // Ensure severity is within 0-1 range.
+        Severity = Mathf.Clamp01(severity);
         IsTreated = false;
         TimeSinceInjury = 0f;
     }
 
-    // Update the injury over time (e.g., called every frame or on a time interval)
     public void UpdateInjury(float deltaTime)
     {
         if (!IsTreated)
         {
             TimeSinceInjury += deltaTime;
-
-            // Logic to worsen the injury over time if untreated
-            // For example, an untreated cut could become infected.
-            // Severity could increase over time depending on the injury type.
         }
     }
 
-    // Treat the injury
     public void TreatInjury()
     {
         IsTreated = true;
-        // Implement logic for treating the injury
-        // For example, applying a bandage to a cut.
     }
 
-    // Apply effects of the injury to the player
     public void ApplyEffects(PlayerStats playerStats)
     {
-        // Logic to apply the injury's effects on the player's stats
-        // For example, a fracture could reduce movement speed.
         switch (Type)
         {
+            case InjuryType.None:
+                break;
+
             case InjuryType.Cut:
-                // Apply effect of a cut
+                playerStats.UpdateHealth(-Severity * 0.1f);
                 break;
+
+            case InjuryType.Bruise:
+                playerStats.UpdateStamina(-Severity * 0.05f);
+                break;
+
             case InjuryType.Fracture:
-                // Apply effect of a fracture
+                playerStats.UpdateMovementSpeed(-Severity * 0.2f);
                 break;
-                // Implement cases for other injury types
+
+            case InjuryType.Burn:
+                playerStats.UpdateHealth(-Severity * 0.2f);
+                playerStats.UpdateStamina(-Severity * 0.1f);
+                break;
+
+            case InjuryType.Concussion:
+                playerStats.UpdatePerception(-Severity * 0.2f);
+                break;
+
+            case InjuryType.Laceration:
+                playerStats.UpdateHealth(-Severity * 0.15f);
+                break;
+
+            case InjuryType.Poisoning:
+                playerStats.UpdateHealth(-Severity * 0.2f);
+                playerStats.UpdateStamina(-Severity * 0.2f);
+                break;
+
+            case InjuryType.Hypothermia:
+                playerStats.UpdateTemperature(-Severity * 0.2f);
+                break;
+
+            case InjuryType.Heatstroke:
+                playerStats.UpdateTemperature(Severity * 0.2f);
+                playerStats.UpdateStamina(-Severity * 0.2f);
+                break;
         }
     }
 
-    // Get a description of the injury
     public string GetDescription()
     {
         switch (Type)
         {
+            case InjuryType.None:
+                return "No Injury";
+
             case InjuryType.Cut:
                 return $"Cut - Severity: {Severity}";
+
+            case InjuryType.Bruise:
+                return $"Bruise - Severity: {Severity}";
+
             case InjuryType.Fracture:
                 return $"Fracture - Severity: {Severity}";
-                // Implement cases for other injury types
+
+            case InjuryType.Burn:
+                return $"Burn - Severity: {Severity}";
+
+            case InjuryType.Concussion:
+                return $"Concussion - Severity: {Severity}";
+
+            case InjuryType.Laceration:
+                return $"Laceration - Severity: {Severity}";
+
+            case InjuryType.Poisoning:
+                return $"Poisoning - Severity: {Severity}";
+
+            case InjuryType.Hypothermia:
+                return $"Hypothermia - Severity: {Severity}";
+
+            case InjuryType.Heatstroke:
+                return $"Heatstroke - Severity: {Severity}";
         }
         return "Unknown Injury";
     }
