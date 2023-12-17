@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class SCP049_2 : MonoBehaviour
 {
     public NavMeshAgent navAgent;
-    public Transform SCP0049Transform; // Transform of SCP-049
+    public Transform SCP0049Transform;
     public float followDistance = 10.0f;
     public LayerMask attackTargetsLayer;
     public float attackRange = 2.0f;
@@ -16,7 +16,7 @@ public class SCP049_2 : MonoBehaviour
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
-        SCP0049Transform = GameObject.FindWithTag("SCP0049").transform; // Make sure SCP-049 has the tag "SCP049"
+        SCP0049Transform = GameObject.FindWithTag("SCP0049").transform;
     }
 
     void Update()
@@ -44,8 +44,6 @@ public class SCP049_2 : MonoBehaviour
 
     private void PatrolArea()
     {
-        // Implement patrolling logic here
-        // SCP-049-2 can patrol an area when not following SCP-049
     }
 
     private void AttackTargets()
@@ -63,24 +61,16 @@ public class SCP049_2 : MonoBehaviour
 
     private IEnumerator AttackTarget(GameObject target)
     {
-        // Play attack animation or sound
-        yield return new WaitForSeconds(1); // Duration of the attack
+        yield return new WaitForSeconds(1);
 
-        // Logic to handle the attack effect
-        // For example, reducing health of the target or similar effects
-
-        currentTarget = null; // Reset target after attack
+        currentTarget = null;
     }
 
     public void BreakObstacle(GameObject obstacle)
     {
-        // Logic to break doors or obstacles
     }
 
     public void Scream()
     {
-        // Play scream sound effect
     }
-
-    // Additional methods or overrides can be implemented as needed
 }
