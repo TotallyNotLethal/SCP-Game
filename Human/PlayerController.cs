@@ -58,7 +58,6 @@ public class PlayerController : MonoBehaviour
 
     private bool CheckForInteractables()
     {
-        // Implement logic to check if the player is near interactable objects
         return false; // Placeholder
     }
     #endregion
@@ -104,7 +103,6 @@ public class PlayerController : MonoBehaviour
 
     private void Interact()
     {
-        // Interaction logic here
     }
     #endregion
 }
