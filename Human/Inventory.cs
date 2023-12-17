@@ -89,15 +89,12 @@ public class Inventory
         Item item = GetItem(itemName);
         if (item != null)
         {
-            // Implement the logic to use the item
-            // Decrease quantity or remove if necessary
         }
     }
 
     public void SortItems()
     {
         items.Sort((item1, item2) => item1.itemName.CompareTo(item2.itemName));
-        // Adjust the sorting logic as needed
     }
 
     public float GetTotalWeight()
@@ -122,13 +119,11 @@ public class Inventory
 
     public string SaveInventoryState()
     {
-        // Serialize the items list to a string (JSON, XML, etc.)
         return null;
     }
 
     public void LoadInventoryState(string savedState)
     {
-        // Deserialize the saved state back into the items list
     }
 
 }
