@@ -42,7 +42,6 @@ public class SCP : MonoBehaviour
     {
         navAgent = GetComponent<NavMeshAgent>();
         allPlayers = new List<Player>(FindObjectsOfType<Player>());
-        // Default values can be set here or in derived classes
     }
 
     protected virtual void Start()
@@ -94,25 +93,20 @@ public class SCP : MonoBehaviour
     // SCP behavior methods
     public virtual void ActivateEffect(PlayerStats playerStats)
     {
-        // Implement the logic for the SCP's effect on the player
     }
 
     public virtual void DeactivateEffect(PlayerStats playerStats)
     {
-        // Implement logic to reverse or stop the SCP's effect
     }
 
     public virtual void EncounterBehavior()
     {
-        // Define behavior when the player encounters this SCP
     }
 
-    // Additional methods for specific SCP actions
     public void Teleport(Vector3 newPosition)
     {
         if (CanTeleport)
         {
-            // Implement teleportation logic
         }
     }
 
@@ -120,7 +114,6 @@ public class SCP : MonoBehaviour
     {
         if (IsTelekinetic)
         {
-            // Apply a telekinetic force to objects or the player
         }
     }
 
@@ -155,16 +148,6 @@ public class SCP : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         yRotation += mouseX;
-
-        //if (!isBeingObserved)
-        //{
-        //    playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        //    transform.Rotate(Vector3.up * mouseX);
-        //}
-        //else
-        //{
-        //    GetComponent<Camera>().transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
-        //}
     }
     #endregion
 
@@ -192,8 +175,6 @@ public class SCP : MonoBehaviour
 
     public bool CanSeePlayer()
     {
-        //foreach (Player p in allPlayers)
-        //{
         Player p = FindObjectsOfType<Player>()[0];
             float distanceToPlayer = Vector3.Distance(transform.position, p.transform.position);
             if (distanceToPlayer < 10)
@@ -207,8 +188,6 @@ public class SCP : MonoBehaviour
                 }
             }
             return false;
-        //}
-        //return false;
     }
 
     private void RotateObserver(float angle)
@@ -217,7 +196,6 @@ public class SCP : MonoBehaviour
     }
     #endregion
 
-    // Additional methods for SCP-specific mechanics
 }
 
 public enum SCPClass
