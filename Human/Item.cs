@@ -48,16 +48,13 @@ public class Item
 
     public virtual void Use()
     {
-        // Default use method, overridden in subclasses for specific behaviors
     }
 
     public virtual void ActivateEffect()
     {
-        // Method to activate any special effects the item might have
     }
 
     public virtual void DeactivateEffect()
     {
-        // Method to deactivate any ongoing effects
     }
 }
