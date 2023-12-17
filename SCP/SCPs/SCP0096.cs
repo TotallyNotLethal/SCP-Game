@@ -27,7 +27,6 @@ public class SCP0096 : SCP
     {
         isAgitated = true;
         target = viewer;
-        // Additional logic for becoming agitated, like playing a sound or animation
     }
 
     private void ChaseTarget()
@@ -46,15 +45,10 @@ public class SCP0096 : SCP
 
     private void AttackTarget()
     {
-        // Logic for attacking the target
-        // This could involve reducing the target's health, playing attack animations, etc.
-        isAgitated = false; // Reset agitation state after the attack
+        isAgitated = false;
     }
 
     public override void ActivateEffect(PlayerStats playerStats)
     {
-        // Special effects that SCP-096 can have on the player
     }
-
-    // Additional SCP-096 specific methods...
 }
