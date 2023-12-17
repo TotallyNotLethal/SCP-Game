@@ -10,5 +10,15 @@ public enum StatusEffectType
     Poisoned,
     Blinded,
     Exhausted,
-    Stressed
+    Stressed,
+    Pestilence,
+    Starving,
+    DimensionalShift,
+    Infatuation,
+    Foreboding,
+    Consumed,
+    TemporalDisplacement,
+    Frustration,
+    InterdimensionalConnection,
+    UnintendedConsequences
 }

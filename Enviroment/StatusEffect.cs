@@ -35,7 +35,46 @@ public class StatusEffect
             case StatusEffectType.BloodLoss:
                 playerStats.UpdateHealth(-Severity * deltaTime); // Health depletes over time
                 break;
-                // ... other cases
+
+            case StatusEffectType.Pestilence: // SCP-049
+                                              // playerStats.UpdateHealth(-Severity * deltaTime * 1.5f);
+                break;
+
+            case StatusEffectType.Starving: // SCP-101
+                                            // playerStats.UpdateHunger(-Severity * deltaTime * 2f);
+                break;
+
+            case StatusEffectType.DimensionalShift: // SCP-137
+                                                    // playerStats.TeleportToAlternateDimension();
+                break;
+
+            case StatusEffectType.Infatuation: // SCP-166
+                                               // playerStats.UpdateConfusion(Severity * deltaTime * 0.5f);
+                break;
+
+            case StatusEffectType.Foreboding: // SCP-295
+                                              // playerStats.UpdateMorale(-Severity * deltaTime * 0.8f);
+                break;
+
+            case StatusEffectType.Consumed: // SCP-357
+                                            // playerStats.Disappear();
+                break;
+
+            case StatusEffectType.TemporalDisplacement: // SCP-460
+                                                        // playerStats.TimeTravel(Severity * deltaTime * 10f);
+                break;
+
+            case StatusEffectType.Frustration: // SCP-523
+                                               // playerStats.UpdateFrustration(Severity * deltaTime * 0.7f);
+                break;
+
+            case StatusEffectType.InterdimensionalConnection: // SCP-527
+                                                              //playerStats.SwitchDimension(Type);
+                break;
+
+            case StatusEffectType.UnintendedConsequences: // SCP-668
+                                                          // playerStats.ApplyUnintendedEffects(Severity * deltaTime * 1.2f);
+                break;
         }
     }
 
