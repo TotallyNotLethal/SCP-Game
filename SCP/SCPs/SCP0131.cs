@@ -101,5 +101,4 @@ public class SCP0131 : SCP
         Debug.Log("SCP-131 alerts the player about: " + alertObject.name);
     }
 
-    // Additional methods or overrides can be implemented as needed
 }
