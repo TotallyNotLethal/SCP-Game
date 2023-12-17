@@ -25,6 +25,8 @@ public class PlayerStats
     public float Fatigue { get; private set; }
     public List<Injury> Injuries { get; private set; }
     public List<StatusEffect> StatusEffects { get; private set; }
+    public float Perception { get; private set; }
+    public float MovementSpeed { get; private set; }
 
     // Constants for limits
     private const float MaxHealth = 100f;
@@ -102,6 +104,18 @@ public class PlayerStats
         CheckStatThresholds();
     }
 
+    public void UpdatePerception(float amount)
+    {
+        Perception += amount;
+        Perception = Mathf.Clamp(Perception, 0f, 100f);
+    }
+
+    public void UpdateMovementSpeed(float amount)
+    {
+        MovementSpeed += amount;
+        MovementSpeed = Mathf.Clamp(MovementSpeed, 0f, float.MaxValue);
+    }
+
     public void UpdateRadiationLevel(float amount)
     {
         RadiationLevel = Mathf.Max(RadiationLevel + amount, 0);
@@ -176,7 +190,7 @@ public class PlayerStats
     {
         if (MentalHealth < 20)
         {
-            
+
         }
     }
 
@@ -210,49 +224,49 @@ public class PlayerStats
     }
 
     public void HandleNewInjury(Injury injury)
-{
-    switch (injury.Type)
     {
-        case InjuryType.None:
-            break;
+        switch (injury.Type)
+        {
+            case InjuryType.None:
+                break;
 
-        case InjuryType.Cut:
-            AddStatusEffect(StatusEffectType.BloodLoss, 0.2f);
-            break;
+            case InjuryType.Cut:
+                AddStatusEffect(StatusEffectType.BloodLoss, 0.2f);
+                break;
 
-        case InjuryType.Bruise:
-            AddStatusEffect(StatusEffectType.Exhausted, 0.1f);
-            break;
+            case InjuryType.Bruise:
+                AddStatusEffect(StatusEffectType.Exhausted, 0.1f);
+                break;
 
-        case InjuryType.Fracture:
-            AddStatusEffect(StatusEffectType.Limping, 0.3f);
-            break;
+            case InjuryType.Fracture:
+                AddStatusEffect(StatusEffectType.Limping, 0.3f);
+                break;
 
-        case InjuryType.Burn:
-            AddStatusEffect(StatusEffectType.Hypothermia, 0.1f);
-            break;
+            case InjuryType.Burn:
+                AddStatusEffect(StatusEffectType.Hypothermia, 0.1f);
+                break;
 
-        case InjuryType.Concussion:
-            AddStatusEffect(StatusEffectType.Dizziness, 0.4f);
-            break;
+            case InjuryType.Concussion:
+                AddStatusEffect(StatusEffectType.Dizziness, 0.4f);
+                break;
 
-        case InjuryType.Laceration:
-            AddStatusEffect(StatusEffectType.BloodLoss, 0.1f);
-            break;
+            case InjuryType.Laceration:
+                AddStatusEffect(StatusEffectType.BloodLoss, 0.1f);
+                break;
 
-        case InjuryType.Poisoning:
-            AddStatusEffect(StatusEffectType.Poisoned, 0.5f);
-            break;
+            case InjuryType.Poisoning:
+                AddStatusEffect(StatusEffectType.Poisoned, 0.5f);
+                break;
 
-        case InjuryType.Hypothermia:
-            AddStatusEffect(StatusEffectType.Hypothermia, 0.6f);
-            break;
+            case InjuryType.Hypothermia:
+                AddStatusEffect(StatusEffectType.Hypothermia, 0.6f);
+                break;
 
-        case InjuryType.Heatstroke:
-            AddStatusEffect(StatusEffectType.Heatstroke, 0.6f);
-            break;
+            case InjuryType.Heatstroke:
+                AddStatusEffect(StatusEffectType.Heatstroke, 0.6f);
+                break;
+        }
     }
-}
 
 
     public void AddStatusEffect(StatusEffectType type, float severity)
