@@ -10,7 +10,7 @@ public abstract class Player : MonoBehaviour
     {
         Name = name;
         Stats = new PlayerStats();
-        Inventory = new Inventory(10); // Example capacity
+        Inventory = new Inventory(10);
     }
 
     public abstract void Move();
@@ -29,25 +29,21 @@ public abstract class Player : MonoBehaviour
 
     public void Update()
     {
-        //float deltaTime = Time.deltaTime;
-        //Stats.UpdateStatusEffects(deltaTime);
-        //Stats.UpdateInjuries(deltaTime);
+        Stats.UpdateStatusEffects(deltaTime);
+        Stats.UpdateInjuries(deltaTime);
     }
 
     // Additional methods
     public void UseItem(string itemName)
     {
-        // Use an item from the inventory
     }
 
     public void EquipItem(string itemName)
     {
-        // Equip an item if applicable
     }
 
     public void DropItem(string itemName)
     {
-        // Drop an item from the inventory
     }
 
     public void Heal(float amount)
@@ -67,15 +63,12 @@ public abstract class Player : MonoBehaviour
 
     public void ApplyStatusEffect(StatusEffectType effectType, float severity)
     {
-        // Apply a status effect to the player
     }
 
     public void ClearStatusEffects()
     {
-        // Clear all current status effects
     }
 
-    public abstract void PerformRoleSpecificAction(); // Placeholder for role-specific actions
+    public abstract void PerformRoleSpecificAction();
 
-    // Other utility methods as needed
 }
