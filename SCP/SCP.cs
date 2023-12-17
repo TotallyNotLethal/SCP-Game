@@ -37,7 +37,6 @@ public class SCP : MonoBehaviour
     public bool CanTeleport { get; set; }
     public AudioClip SoundEffect { get; set; }
 
-    // Constructor
     protected virtual void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -205,5 +204,5 @@ public enum SCPClass
     Keter,     // SCPs that are exceedingly difficult to contain consistently or reliably
     Thaumiel,  // SCPs that are used to contain or counteract the effects of other SCPs
     Apollyon,  // SCPs that cannot be contained or pose an existential threat to humanity or reality
-    Archon     //SCPs that could theoretically be contained but are best left uncontained for some reason
+    Archon     // SCPs that could theoretically be contained but are best left uncontained for some reason
 }
