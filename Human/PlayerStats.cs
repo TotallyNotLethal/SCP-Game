@@ -48,7 +48,7 @@ public class PlayerStats
 
         SCPExposureLevel = 0f;
         IsUnderSCPInfluence = false;
-        Temperature = 20f; // Default room temperature
+        Temperature = 20f;
         RadiationLevel = 0f;
     }
 
@@ -108,47 +108,38 @@ public class PlayerStats
         CheckStatThresholds();
     }
 
-    // Additional methods implementation
-
     private void CheckStatThresholds()
     {
         if (Health < 20) TriggerHealthWarning();
         if (Stamina < 20) Exhaust(5);
         if (MentalHealth < 20) SanityCheck();
-        // Add more threshold checks as needed
     }
 
     private void TriggerHealthWarning()
     {
-        // Implement warning logic (UI notification, sound, etc.)
     }
 
     public void RecoverOverTime(float deltaTime)
     {
-        UpdateStamina(deltaTime * 0.05f); // Example recovery rate
+        UpdateStamina(deltaTime * 0.05f);
         UpdateMentalHealth(deltaTime * 0.03f);
     }
 
     public void ApplyEnvironmentalEffects(GameEnvironment currentEnvironment)
     {
-        // Modify stats based on environmental factors
-        // Example: UpdateTemperature(currentEnvironment.TemperatureChange);
     }
 
     public void HandleSCPInfluence(SCP scp)
     {
-        // Apply specific effects based on the SCP
-        // Example: UpdateMentalHealth(-scp.MentalHealthImpact);
     }
 
     public void ConsumeItem(Item item)
     {
-        // Example: if (item.Type == ItemType.Food) UpdateHunger(item.NutritionalValue);
     }
 
     public void Sleep(int hours)
     {
-        UpdateFatigue(-hours * 10); // Example: 10 fatigue recovered per hour of sleep
+        UpdateFatigue(-hours * 10);
         UpdateMentalHealth(hours * 2);
     }
 
@@ -159,7 +150,7 @@ public class PlayerStats
 
     public void ApplyHungerEffects()
     {
-        if (Hunger < 20) UpdateHealth(-0.1f); // Example effect
+        if (Hunger < 20) UpdateHealth(-0.1f);
     }
 
     public void ApplyThirstEffects()
@@ -169,7 +160,7 @@ public class PlayerStats
 
     public void ManageTemperatureEffects()
     {
-        if (Temperature < 0 || Temperature > 40) UpdateHealth(-0.2f); // Hypothermia or heatstroke effect
+        if (Temperature < 0 || Temperature > 40) UpdateHealth(-0.2f);
     }
 
     public void ApplyFatigueEffects()
@@ -179,8 +170,6 @@ public class PlayerStats
 
     public void HandleInjury(InjuryType injury)
     {
-        // Implement injury effects
-        // Example: if (injury == InjuryType.Leg) UpdateSpeed(-0.2f);
     }
 
     public void SanityCheck()
@@ -206,14 +195,11 @@ public class PlayerStats
         UpdateStamina(-amount);
     }
 
-    // Method to add an injury
     public void AddInjury(InjuryType type, float severity)
     {
         Injuries.Add(new Injury(type, severity));
-        // Apply immediate effects of the injury
     }
 
-    // Method to update injuries over time
     public void UpdateInjuries(float deltaTime)
     {
         foreach (var injury in Injuries)
@@ -221,56 +207,81 @@ public class PlayerStats
             injury.UpdateInjury(deltaTime);
             injury.ApplyEffects(this);
         }
-        // Consider removing or healing injuries if they are treated and healed
     }
 
     public void HandleNewInjury(Injury injury)
+{
+    switch (injury.Type)
     {
-        switch (injury.Type)
-        {
-            case InjuryType.Laceration:
-                AddStatusEffect(StatusEffectType.BloodLoss, 0.1f); // Example severity
-                break;
-                // Map other injuries to their respective status effects
-        }
-    }
+        case InjuryType.None:
+            break;
 
-    // Method to add a status effect
+        case InjuryType.Cut:
+            AddStatusEffect(StatusEffectType.BloodLoss, 0.2f);
+            break;
+
+        case InjuryType.Bruise:
+            AddStatusEffect(StatusEffectType.Exhausted, 0.1f);
+            break;
+
+        case InjuryType.Fracture:
+            AddStatusEffect(StatusEffectType.Limping, 0.3f);
+            break;
+
+        case InjuryType.Burn:
+            AddStatusEffect(StatusEffectType.Hypothermia, 0.1f);
+            break;
+
+        case InjuryType.Concussion:
+            AddStatusEffect(StatusEffectType.Dizziness, 0.4f);
+            break;
+
+        case InjuryType.Laceration:
+            AddStatusEffect(StatusEffectType.BloodLoss, 0.1f);
+            break;
+
+        case InjuryType.Poisoning:
+            AddStatusEffect(StatusEffectType.Poisoned, 0.5f);
+            break;
+
+        case InjuryType.Hypothermia:
+            AddStatusEffect(StatusEffectType.Hypothermia, 0.6f);
+            break;
+
+        case InjuryType.Heatstroke:
+            AddStatusEffect(StatusEffectType.Heatstroke, 0.6f);
+            break;
+    }
+}
+
+
     public void AddStatusEffect(StatusEffectType type, float severity)
     {
         StatusEffects.Add(new StatusEffect(type, severity));
     }
 
-    // Method to update status effects over time
     public void UpdateStatusEffects(float deltaTime)
     {
         foreach (var effect in StatusEffects)
         {
             effect.UpdateEffect(deltaTime, this);
         }
-        // Remove effects that are no longer active
         StatusEffects.RemoveAll(effect => !effect.IsActive);
     }
 
 
-    // Method to set health
     public void SetHealth(float newHealth)
     {
         Health = Mathf.Clamp(newHealth, 0, MaxHealth);
-        // Additional logic if needed (e.g., triggering events when health changes)
     }
 
-    // Method to set stamina
     public void SetStamina(float newStamina)
     {
         Stamina = Mathf.Clamp(newStamina, 0, MaxStamina);
-        // Additional logic if needed
     }
 
-    // Method to set speed
     public void SetSpeed(float newSpeed)
     {
         Speed = newSpeed;
-        // Add constraints if necessary and additional logic if needed
     }
 }
