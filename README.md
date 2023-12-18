@@ -1,4 +1,4 @@
-# Update
+# Update       [ROADMAP](/Roadmap.md)
 Note: SCP-0096 is currently undergoing a rework due to some bugs. We're working to enhance the gameplay experience and will update once the rework is complete.
 
 # SCP-Game
