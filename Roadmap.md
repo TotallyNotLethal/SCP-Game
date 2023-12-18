@@ -43,3 +43,33 @@
 - **Player Feedback Integration:** Regularly gather and integrate player feedback to refine and adjust the mechanics for an optimal gaming experience.
 
 - **Documentation and Comments:** Maintain comprehensive documentation and comments within the code for clarity and ease of future modifications.
+
+
+# Roadmap for Improvements in the "Human" Directory
+
+## 1. Inventory System Enhancements
+- **Dynamic Inventory Management:** Improve the inventory system to handle dynamic changes, such as weight limits and item durability.
+- **UI Integration and Interaction:** Enhance the Inventory UI for better player interaction, including tooltips, sorting, and visual feedback.
+- **Crafting and Upgrades:** Introduce crafting and upgrade mechanics for items within the inventory.
+
+## 2. Item Class Development
+- **Detailed Item Behaviors:** Implement specific behaviors for different item types, including special effects and usage mechanics.
+- **Dynamic Descriptions:** Develop dynamic item descriptions that change based on the item's state or player actions.
+- **Gameplay Integration:** Ensure items have meaningful interactions with gameplay elements, such as affecting player stats or unlocking abilities.
+
+## 3. Player Controller Improvements
+- **Advanced Movement Mechanics:** Add features like sprinting, crouching, and jumping, with corresponding stamina mechanics.
+- **Interaction System:** Develop a robust interaction system for engaging with the game environment and NPCs.
+- **Health and Stamina Systems:** Implement a dynamic health and stamina system, influenced by environmental factors and player actions.
+
+## 4. Player Stats System Refinement
+- **Stat Interactions and Environmental Impact:** Enhance the interaction between different stats and their response to the game environment.
+- **Injury and Status Effect Integration:** Deepen the integration of injuries and status effects with player stats.
+- **Customizable Stat Growth:** Allow players to influence their stat growth through gameplay choices.
+
+## Implementation Strategies
+- **Iterative Development and Testing:** Implement features in stages, testing regularly for balance and player feedback.
+- **Collaboration with Design Teams:** Work closely with design and art teams to ensure visual and audio elements align with gameplay changes.
+- **Performance Optimization:** Continuously monitor and optimize performance, especially when adding new features.
+- **Player Feedback Integration:** Regularly incorporate player feedback to refine gameplay mechanics and UI elements.
+- **Documentation and Code Comments:** Maintain clear documentation and comments within the code for future reference and ease of modifications.
