@@ -99,3 +99,27 @@
 - **Performance Optimization:** Continuously monitor and optimize performance, especially when adding new features.
 - **Player Feedback Integration:** Regularly incorporate player feedback to refine gameplay mechanics and UI elements.
 - **Documentation and Code Comments:** Maintain clear documentation and comments within the code for future reference and ease of modifications.
+
+# Roadmap for Improvements in the "SCP" Directory
+
+## 1. Enhanced State Behaviors
+- **Chase, Patrol, etc.:** Develop more complex and varied behaviors for each state, making SCP actions more dynamic and challenging.
+
+## 2. Advanced Observation Mechanics
+- **Intelligent Interaction:** Implement advanced observation techniques for SCPs, allowing them to interact more intelligently with the environment and the player.
+
+## 3. Dynamic State Transitions
+- **Responsive Transitions:** Create more fluid and responsive state transitions based on environmental factors and player interactions.
+
+## 4. Integration with Game Environment
+- **Responsive to Changes:** Ensure SCP behaviors are well-integrated with the game environment, responding to changes and affecting gameplay.
+
+## 5. Customizable SCP Behaviors
+- **Varied Gameplay:** Allow for customization of SCP behaviors to create varied gameplay experiences.
+
+## Implementation Strategies
+- **Iterative Development and Testing:** Implement features in stages, testing regularly for balance and player feedback.
+- **Collaboration with Design Teams:** Work closely with design and art teams to ensure visual and audio elements align with gameplay changes.
+- **Performance Optimization:** Continuously monitor and optimize performance, especially when adding new features.
+- **Player Feedback Integration:** Regularly incorporate player feedback to refine SCP behaviors and interactions.
+- **Documentation and Code Comments:** Maintain clear documentation and comments within the code for future reference and ease of modifications.
